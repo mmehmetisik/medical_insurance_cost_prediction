@@ -4,7 +4,11 @@
 ![Streamlit](https://img.shields.io/badge/Streamlit-1.0%2B-red)
 ![scikit-learn](https://img.shields.io/badge/scikit--learn-1.0%2B-green)
 
-A machine learning web application that predicts medical insurance costs based on personal factors. Try the live demo: [Medical Insurance Cost Predictor](your_streamlit_app_link)
+![Ekran görüntüsü 2025-02-18 015444](https://github.com/user-attachments/assets/8547e5c7-3363-4de9-8638-42d4646da307)
+
+
+A machine learning web application that predicts medical insurance costs based on personal factors. 
+Try the live demo: [Medical Insurance Cost Predictor](your_streamlit_app_link)
 
 ## 🎯 Overview
 
