@@ -128,7 +128,7 @@ def predict_insurance_cost(age, sex, bmi, children, smoker, region):
         bmi_cat = 'Overweight'
     else:
         bmi_cat = 'Obese'
-
+    
     # Yaş kategorisi belirleme
     if age < 30:
         age_cat = 'Young'
@@ -136,7 +136,7 @@ def predict_insurance_cost(age, sex, bmi, children, smoker, region):
         age_cat = 'Middle'
     else:
         age_cat = 'Senior'
-
+    
     # Risk skoru hesaplama
     if smoker == 'yes' and bmi > 30:
         risk_score = 3
@@ -146,13 +146,13 @@ def predict_insurance_cost(age, sex, bmi, children, smoker, region):
         risk_score = 1
     else:
         risk_score = 0
-
+    
     # Aile büyüklüğü
     family_size = children + 1
-
+    
     # BMI ve yaş etkileşimi
     age_bmi_interaction = (age * bmi) / 100
-
+    
     # Tahmin için DataFrame oluşturma
     data = {
         'age': [age],
@@ -175,49 +175,48 @@ def predict_insurance_cost(age, sex, bmi, children, smoker, region):
         'risk_score_3': [1 if risk_score == 3 else 0],
         'has_children_1': [1 if children > 0 else 0]
     }
-
+    
     df = pd.DataFrame(data)
-
+    
     # Numerik kolonları scale etme
     num_cols = ['age', 'bmi', 'children', 'family_size', 'age_bmi_interaction']
     df[num_cols] = scaler.transform(df[num_cols])
-
+    
     # Tahmin
     prediction = model.predict(df)[0]
-
+    
     return prediction, bmi_cat, age_cat, risk_score
-
 
 # Tahmin butonu tıklandığında
 if predict_button:
     prediction, bmi_cat, age_cat, risk_score = predict_insurance_cost(
         age, sex, bmi, children, smoker, region
     )
-
+    
     # Sonuçları göster
     st.markdown("### Results")
-
+    
     # Tahmin edilen maliyet
     st.markdown(
         f"""
         <div style='padding:10px; border-radius:10px; background-color: rgba(0,100,0,0.1)'>
         <h3 style='color: #0f5132; margin:0'>Predicted Insurance Cost: ${prediction:,.2f}</h3>
         </div>
-        """,
+        """, 
         unsafe_allow_html=True
     )
-
+    
     # Faktör analizi
     st.markdown("### Factors Affecting the Price")
     col1, col2 = st.columns(2)
-
+    
     with col1:
         st.markdown(f"""
         * Age: {age} years ({age_cat})
         * BMI: {bmi:.1f} ({bmi_cat})
         * Number of Children: {children}
         """)
-
+        
     with col2:
         st.markdown(f"""
         * Smoking Status: {smoker}
