@@ -1,8 +1,6 @@
-numpy==1.23.5
-pandas==1.5.3
-scikit-learn==1.2.2
-streamlit==1.29.0
-pickle5==0.0.11
-pathlib==1.0.1
-matplotlib==3.7.1
-seaborn==0.12.2
+numpy>=1.21.0
+pandas>=1.3.0
+streamlit>=1.0.0
+scikit-learn>=1.0.0
+matplotlib>=3.4.0
+seaborn>=0.11.0
