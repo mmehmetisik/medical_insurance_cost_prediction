@@ -8,7 +8,7 @@
 
 This project is a machine learning-based web application that predicts medical insurance costs based on user input. Built with Gradient Boosting and Streamlit, it provides accurate predictions based on real insurance data.
 
-🔗 [Live Demo: Medical Insurance Cost Predictor](your_streamlit_app_link)
+🔗 [Live Demo: Medical Insurance Cost Predictor](https://01-medical-insurance-cost-prediction.streamlit.app/)
 
 ## 📊 Overview
 
